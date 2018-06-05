@@ -64,6 +64,12 @@ public class GoodsServlet extends HttpServlet {
         JdbcGoods jdbcGoods = new JdbcGoods();
         Goods goods = new Goods();
         String id = req.getParameter("id");
+
+
+
+
+        //SSSSSSS
+        //SSSSSSS
         jdbcGoods.deleteGoods(Integer.parseInt(id));
         req.getRequestDispatcher("/add.jsp").forward(req,resp);
     }
