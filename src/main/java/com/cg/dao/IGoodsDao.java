@@ -10,7 +10,7 @@ public interface IGoodsDao {
 
     public List<Goods> findGoods();
 
-    public Goods getGoods(String id);
+    public Goods getGoods(int id);
 
 
     public void saveGoods(Goods goods);

@@ -48,7 +48,7 @@ public class UserDaoImpl implements IUserDao {
     }
 
     @Override
-    public User getUser(int id) {
+    public User getUser(String name) {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -56,7 +56,7 @@ public class UserDaoImpl implements IUserDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("select * from user where id= " + id);
+            rs = stmt.executeQuery("select * from user where name= " + name);
 
             while (rs.next()) {
                 int userId = rs.getInt("user_id");

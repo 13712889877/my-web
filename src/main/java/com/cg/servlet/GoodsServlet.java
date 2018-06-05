@@ -21,27 +21,11 @@ import java.util.Map;
 
 public class GoodsServlet extends HttpServlet {
 
-    static Map<String,Map<String,Object>>  map = null;
-
     private IGoodsService goodsService = new GoodsServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//        resp.setContentType("text/html");
-//        HttpSession session = req.getSession();
-//        String heading;
-//        Integer accessCount = (Integer) session.getAttribute("accessCount");
-//        if (accessCount == null) {
-//            accessCount = new Integer(0);
-//            heading = "Welcom,You are first time to visit!";
-//        } else {
-//            heading = "Welcome Backer";
-//            accessCount = new Integer(accessCount.intValue() + 1);
-//        }
-//        session.setAttribute("accessCount", accessCount);
-//        PrintWriter out = resp.getWriter();
-//        out.println("The title:" + heading);
-//        out.println("Access count: " + accessCount);
+
         this.doPost(request,response);
 
     }
@@ -61,16 +45,8 @@ public class GoodsServlet extends HttpServlet {
     }
 
     private void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        JdbcGoods jdbcGoods = new JdbcGoods();
-        Goods goods = new Goods();
-        String id = req.getParameter("id");
-
-
-
-
-        //SSSSSSS
-        //SSSSSSS
-        jdbcGoods.deleteGoods(Integer.parseInt(id));
+       String id= req.getParameter("id") == null ? "" : req.getParameter("id");
+        goodsService.deleteGoods(Integer.valueOf(id));
         req.getRequestDispatcher("/add.jsp").forward(req,resp);
     }
 
@@ -85,12 +61,8 @@ public class GoodsServlet extends HttpServlet {
     }
 
     protected void addShoppingCar(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-JdbcGoods jdbcGoods = new JdbcGoods();
         String goodsId = req.getParameter("id");
-
-       //operation db
-       String goodsName = req.getParameter("name");
-
+        String goodsName = req.getParameter("name");
         String price = req.getParameter("price");
 
         Goods goods = new Goods();
@@ -98,7 +70,7 @@ JdbcGoods jdbcGoods = new JdbcGoods();
         goods.setId(Integer.valueOf(goodsId));
         goods.setName(goodsName);
         goods.setPrice(Double.valueOf(price));
-            jdbcGoods.saveGoods(goods);
+        goodsService.saveGoods(goods);
         ShoppingCar car =  (ShoppingCar)req.getSession().getAttribute("SHOPPING_CAR");
 
         if(car == null ){

@@ -11,7 +11,7 @@ public interface IUserDao {
     public List<User> findUser();
 
 
-    public User getUser(int id);
+    public User getUser(String name);
 
 
     public void saveUser(User user);

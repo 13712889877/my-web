@@ -2,7 +2,6 @@ package com.cg.service.impl;
 
 import com.cg.dao.IUserDao;
 import com.cg.dao.impl.UserDaoImpl;
-import com.cg.entity.Goods;
 import com.cg.entity.User;
 import com.cg.service.IUserService;
 
@@ -15,9 +14,28 @@ public class UserServiceImpl implements IUserService {
 
 
     public List<User> findUser() {
-        IUserDao userDao = new UserDaoImpl();
-
-
         return userDao.findUser();
+    }
+
+    @Override
+    public User getUser(String name) {
+        return userDao.getUser(name);
+    }
+
+
+    @Override
+    public void saveUser(User user) {
+        userDao.saveUser(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userDao.updateUser(user);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        userDao.deleteUser(id);
+
     }
 }

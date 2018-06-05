@@ -7,10 +7,10 @@
 <body>
 <form action="<%=request.getContextPath()%>/login?method=beforeLogin" method="post">
 
-    <input type="text" name="user_name"  placeholder="用户名" />
-    <input type="password" name="user_password"  placeholder="密码" />
-    <input type="email" name="user_email"  placeholder="用户邮箱" />
-    <button type="submit">登录</button>
+    <input type="text" name="userName"  placeholder="用户名" />
+    <input type="password" name="userPassword"  placeholder="密码" />
+    <input type="email" name="userEmail"  placeholder="用户邮箱" />
+    <button type="submit">注册</button>
 </form>
 </body>
 </html>
