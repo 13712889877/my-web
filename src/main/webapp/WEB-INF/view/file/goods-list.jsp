@@ -27,8 +27,8 @@
     <td><%=goods.getPrice()%></td>
     <td><%=goods.getRemark()%></td>
     <td><a
-            href="<%=request.getContextPath()%>/goods?method=addShoppingCar&goods=<%=goods.getId()%>"><input
-            class="btn_s" type="button" value="删除" /></a></td>
+            href="<%=request.getContextPath()%>/goods?method=addShoppingCar&goodsId=<%=goods.getId()%>"><input
+            class="btn_s" type="button" value="预购" /></a></td>
     </tr>
     <%
         }

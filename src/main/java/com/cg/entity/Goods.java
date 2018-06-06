@@ -3,10 +3,11 @@ package com.cg.entity;
 public class Goods {
 
     private int id;
-
+    private int number;
     private String name;
 
     private double price;
+    private double totalAmount;
 
     private double remark;
 
@@ -40,5 +41,21 @@ public class Goods {
 
     public void setRemark(double remark) {
         this.remark = remark;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
     }
 }

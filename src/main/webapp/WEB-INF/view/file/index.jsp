@@ -8,16 +8,10 @@
     <title>主界面</title>
 </head>
 <body>
-<h2>
-    欢迎光临，<br>
-    <%
-        Map<String, String> map = (HashMap<String, String>) request.getAttribute("map");
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-    %>
-    <p>用户<%=entry.getKey()%>
-    </p>
-    <%
-  }%>
-</h2>
+<%=request.getAttribute("errorMsg")%>
+<a
+        href="<%=request.getContextPath()%>/login?method=beforeLogin"><input
+        class="btn_s" type="button" value="返回登录列表"/></a>
+
 </body>
 </html>

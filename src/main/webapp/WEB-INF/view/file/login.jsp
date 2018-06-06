@@ -10,7 +10,7 @@
     <input type="text" name="userName"  placeholder="用户名" />
     <input type="password" name="userPassword"  placeholder="密码" />
     <button type="submit">登录</button>
-    <a href="/mcg-web/login?method=beforeRegister" ><input
+    <a href="/login?method=beforeRegister" ><input
             class="btn_s" type="button" value="注册" /></a>
 </form>
 </body>

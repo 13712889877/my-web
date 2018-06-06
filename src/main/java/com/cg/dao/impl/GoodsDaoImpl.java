@@ -3,6 +3,7 @@ package com.cg.dao.impl;
 import com.cg.dao.IGoodsDao;
 import com.cg.entity.Goods;
 import com.cg.util.DBUtil;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -11,7 +12,13 @@ import java.util.List;
 
 import static com.cg.util.DBUtil.getConnection;
 
+/**
+ * 实现商品信息的接口
+ */
 public class GoodsDaoImpl implements IGoodsDao {
+    /**
+     * 操作数据库，从数据库查找所有商品的信息
+     */
 
     @Override
     public List<Goods> findGoods() {
@@ -30,6 +37,10 @@ public class GoodsDaoImpl implements IGoodsDao {
                 String name = rs.getString("name");
                 Double price = rs.getDouble("price");
                 Double remark = rs.getDouble("remark");
+                Double totalAmount =rs.getDouble("totalAmount");
+                int number =rs.getInt("number");
+                goods.setTotalAmount(totalAmount);
+                goods.setNumber(number);
                 goods.setId(id);
                 goods.setName(name);
                 goods.setPrice(price);
@@ -44,6 +55,12 @@ public class GoodsDaoImpl implements IGoodsDao {
         }
         return goodsList;
     }
+
+    /**
+     * 操作数据库，通过id从数据库中查找单个商品的信息
+     *
+     * @param id
+     */
 
     @Override
     public Goods getGoods(int id) {
@@ -62,10 +79,12 @@ public class GoodsDaoImpl implements IGoodsDao {
                 String name = rs.getString("name");
                 Double price = rs.getDouble("price");
                 Double remark = rs.getDouble("remark");
+                int number = rs.getInt("number");
                 goods.setId(idi);
                 goods.setName(name);
                 goods.setPrice(price);
                 goods.setRemark(remark);
+                goods.setNumber(number);
 
 
             }
@@ -77,6 +96,12 @@ public class GoodsDaoImpl implements IGoodsDao {
         return goods;
     }
 
+    /**
+     * 操作数据库，向数据库添加新的商品信息
+     *
+     * @param goods
+     */
+
     @Override
     public void saveGoods(Goods goods) {
         Connection conn = null;
@@ -84,13 +109,20 @@ public class GoodsDaoImpl implements IGoodsDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            stmt.executeUpdate("insert into goods(name,price,remark) values('" + goods.getName() + "','" + goods.getPrice() + "','" + goods.getRemark() + ");");
+            stmt.executeUpdate("insert into goods(name,price,remark,number) values('" + goods.getName() + "','" + goods.getPrice() + "','" + goods.getRemark() + ","+goods.getNumber()+");");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(stmt, conn);
         }
     }
+
+    /**
+     * 操作数据库，更新数据库中商品信息
+     *
+     * @param goods
+     */
+
 
     @Override
     public void updateGoods(Goods goods) {
@@ -99,13 +131,19 @@ public class GoodsDaoImpl implements IGoodsDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            stmt.executeUpdate("update goods set name=" + goods.getName() + ",price=" + goods.getPrice() + ",remark=" + goods.getRemark() + ");");
+            stmt.executeUpdate("update goods set name=" + goods.getName() + ",price=" + goods.getPrice() + ",remark=" + goods.getRemark() + ",number"+goods.getNumber()+");");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(stmt, conn);
         }
     }
+
+    /**
+     * 操作数据库，通过id从数据库中删除商品信息
+     *
+     * @param id
+     */
 
     @Override
     public void deleteGoods(int id) {
@@ -114,7 +152,7 @@ public class GoodsDaoImpl implements IGoodsDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            stmt.executeUpdate("delete * from goods where id  = " + id);
+            stmt.executeUpdate("delete  from goods where id  = " + id);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

@@ -4,38 +4,70 @@ import com.cg.dao.IGoodsDao;
 import com.cg.dao.impl.GoodsDaoImpl;
 import com.cg.entity.Goods;
 import com.cg.service.IGoodsService;
+
 import java.util.List;
 
 
+/**
+ * 实现商品服务的接口
+ */
 public class GoodsServiceImpl implements IGoodsService {
-
+    //new一个全局的goodsDao
     private IGoodsDao goodsDao = new GoodsDaoImpl();
 
+    /**
+     * 服务层，从goodsDao中调取findGoods方法
+     */
     @Override
     public List<Goods> findGoods() {
         return goodsDao.findGoods();
     }
 
+    /**
+     * 服务层，从goodsDao中调取getGoods方法
+     *
+     * @param id
+     */
     @Override
     public Goods getGoods(int id) {
         return goodsDao.getGoods(id);
     }
+
+    /**
+     * 服务层，从goodsDao中调取saveGoods方法
+     *
+     * @param goods
+     */
 
     @Override
     public void saveGoods(Goods goods) {
         goodsDao.saveGoods(goods);
     }
 
+    /**
+     * 服务层，从goodsDao中调取updateGoods方法
+     *
+     * @param goods
+     */
+
     @Override
     public void updateGoods(Goods goods) {
         goodsDao.updateGoods(goods);
     }
+
+    /**
+     * 服务层，从goodsDao中调取deleteGoods方法
+     *
+     * @param id
+     */
 
     @Override
     public void deleteGoods(int id) {
         goodsDao.deleteGoods(id);
 
     }
+
+
 }
 
 

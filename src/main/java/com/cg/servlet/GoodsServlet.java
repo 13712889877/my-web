@@ -18,15 +18,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * 创建一个类并继承HttpServlet
+ */
 public class GoodsServlet extends HttpServlet {
 
+private  ShoppingCar shoppingCar;
     private IGoodsService goodsService = new GoodsServiceImpl();
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-        this.doPost(request,response);
+        doPost(req, resp);
 
     }
 
@@ -36,54 +39,63 @@ public class GoodsServlet extends HttpServlet {
         String method = req.getParameter("method");
         if (method.equals("addShoppingCar")) {
             addShoppingCar(req, resp);
-        }else if (method.equals("shopList")){
-            shopList(req,resp);
-        }else if(method.equals("delete")){
-            delete(req,resp);
+        } else if (method.equals("shopList")) {
+            shopList(req, resp);
+        } else if (method.equals("delete")) {
+            delete(req, resp);
         }
 
     }
 
+    /**
+     * 前端商品列表页面点击删除跳转时所走的方法
+     *
+     * @param req
+     * @param resp
+     */
     private void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       String id= req.getParameter("id") == null ? "" : req.getParameter("id");
+        String id = req.getParameter("id") == null ? "" : req.getParameter("id");
         goodsService.deleteGoods(Integer.valueOf(id));
-        req.getRequestDispatcher("/add.jsp").forward(req,resp);
+        req.getRequestDispatcher("WEB-INF/view/file/add.jsp").forward(req, resp);
     }
 
     private void shopList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
         List<Goods> goodsList = goodsService.findGoods();
-        req.setAttribute("goodList",goodsList);
-        req.getRequestDispatcher("/goods-list.jsp").forward(req,resp);
+        req.setAttribute("goodsList", goodsList);
+        req.getRequestDispatcher("WEB-INF/view/file/goods-list.jsp").forward(req, resp);
 
 
     }
 
+    /**
+     * 前端商品列表页面点击添加跳转时所走的方法
+     *
+     * @param req
+     * @param resp
+     */
     protected void addShoppingCar(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String goodsId = req.getParameter("id");
-        String goodsName = req.getParameter("name");
-        String price = req.getParameter("price");
+        ShoppingCar carList = new ShoppingCar();
+        String goodsId = req.getParameter("goodsId") == null ? "" : req.getParameter("goodsId");
 
-        Goods goods = new Goods();
+        Goods goods = goodsService.getGoods(Integer.valueOf(goodsId));
+        ShoppingCar car = (ShoppingCar) req.getSession().getAttribute("SHOPPING_CAR");
 
-        goods.setId(Integer.valueOf(goodsId));
-        goods.setName(goodsName);
-        goods.setPrice(Double.valueOf(price));
-        goodsService.saveGoods(goods);
-        ShoppingCar car =  (ShoppingCar)req.getSession().getAttribute("SHOPPING_CAR");
+        if (car == null) {
 
-        if(car == null ){
-            ShoppingCar carList = new ShoppingCar();
 
-            car.getGoodList().add(goods);
+            carList.getGoodList().add(goods);
 
-            req.getSession().setAttribute("SHOPPING_CAR",carList);
-        }else{
+            req.getSession().setAttribute("SHOPPING_CAR", carList);
+        } else {
 
-            car.getGoodList().add(goods);
+            carList.getGoodList().add(goods);
+
         }
-req.getRequestDispatcher("/add.jsp").forward(req,resp);
+
+
+        req.getRequestDispatcher("WEB-INF/view/file/shoppingCar.jsp").forward(req, resp);
 
     }
 }

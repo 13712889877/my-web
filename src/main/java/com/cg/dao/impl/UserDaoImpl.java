@@ -12,8 +12,13 @@ import java.util.List;
 
 import static com.cg.util.DBUtil.getConnection;
 
+/**
+ * 实现用户信息的接口
+ */
 public class UserDaoImpl implements IUserDao {
-
+    /**
+     * 操作数据库，从数据库中查找所有用户信息
+     */
 
     @Override
     public List<User> findUser() {
@@ -47,8 +52,14 @@ public class UserDaoImpl implements IUserDao {
         return userList;
     }
 
+    /**
+     * 操作数据库，通过name从数据库中查找当前用户信息
+     *
+     * @param userName
+     */
+
     @Override
-    public User getUser(String name) {
+    public User getUser(String userName) {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -56,15 +67,15 @@ public class UserDaoImpl implements IUserDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("select * from user where name= " + name);
+            rs = stmt.executeQuery("select * from user where user_name= " + userName);
 
             while (rs.next()) {
                 int userId = rs.getInt("user_id");
-                String userName = rs.getString("user_name");
+                String userName1 = rs.getString("user_name");
                 String userPassword = rs.getString("user_password");
                 String userEmail = rs.getString("user_email");
                 user.setUserId(userId);
-                user.setUserName(userName);
+                user.setUserName(userName1);
                 user.setUserPassword(userPassword);
                 user.setUserEmail(userEmail);
 
@@ -77,6 +88,11 @@ public class UserDaoImpl implements IUserDao {
         return user;
     }
 
+    /**
+     * 操作数据库，向数据库添加新的用户信息
+     *
+     * @param user
+     */
 
     @Override
     public void saveUser(User user) {
@@ -93,6 +109,11 @@ public class UserDaoImpl implements IUserDao {
         }
     }
 
+    /**
+     * 操作数据库，更新数据库中用户信息
+     *
+     * @param user
+     */
 
     @Override
     public void updateUser(User user) {
@@ -108,6 +129,12 @@ public class UserDaoImpl implements IUserDao {
             DBUtil.close(stmt, conn);
         }
     }
+
+    /**
+     * 操作数据库，通过id从数据库删除当前用户信息
+     *
+     * @param id
+     */
 
     @Override
     public void deleteUser(int id) {

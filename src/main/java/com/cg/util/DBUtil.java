@@ -12,7 +12,7 @@ public class DBUtil {
             conn = DriverManager.getConnection("jdbc:mysql://101.201.235.213:3306/cg", "cg", "123456");
 
         }catch(Exception e){
-            throw new RuntimeException("db error ");
+            throw new RuntimeException("db error ",e);
         }
         return conn;
     }
