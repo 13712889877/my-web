@@ -1,18 +1,30 @@
 package com.cg.service;
 
 import com.cg.entity.Goods;
+import com.cg.entity.ShoppingCar;
 
 import java.util.List;
 
 /**
  * 定义一个商品服务的接口
+ * @author  cg
+ * @since  2018/2/2
  */
 public interface IGoodsService {
 
-    //接口创建一个查找所有商品信息的方法
+    /**
+     * 接口创建一个查找所有商品信息的方法
+     *
+     */
     List<Goods> findGoods();
 
-    //接口通过id查找单个商品信息的方法
+
+
+    /**
+     * 获取商品
+     * @param id
+     * @return
+     */
     Goods getGoods(int id);
 
     //接口创建一个保存商品信息的方法
@@ -23,6 +35,6 @@ public interface IGoodsService {
 
     //接口通过id删除商品信息的方法
     void deleteGoods(int id);
-
+    void judgeCar(Goods goods,ShoppingCar car);
 
 }

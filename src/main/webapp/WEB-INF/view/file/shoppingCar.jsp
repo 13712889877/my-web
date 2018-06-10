@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-<table>
+<table border="1">
     <thead>
     <tr>
         <th>商品编号</th>
@@ -16,8 +16,8 @@
         <th>商品数量</th>
         <th>商品总价</th>
         <th>商品评论</th>
-
         <th>操作</th>
+        <th> 消费总金额</th>
     </tr>
     </thead>
     <tbody>
@@ -33,23 +33,28 @@
     </td>
     <td><%=goods.getPrice()%>
     </td>
-    <td><%=goods.getNumber()%></td>
-    <td><%=goods.getNumber()*goods.getPrice()%></td>
+    <td><%=goods.getNumber()%>
+    </td>
+    <td><%=goods.getNumber() * goods.getPrice()%>
+    </td>
     <td><%=goods.getRemark()%>
     </td>
+
 
     <td><a
             href="<%=request.getContextPath()%>/goods?method=delete&id=<%=goods.getId()%>"><input
             class="btn_s" type="button" value="删除"/></a></td>
     </tr>
+
     <%
         }
     %>
     </tbody>
+
+    <td><%=car.getTotalPrice()%></td>
     <a
             href="<%=request.getContextPath()%>/goods?method=shopList"><input
             class="btn_s" type="button" value="返回商品列表"/></a>
 </table>
-
 </body>
 </html>

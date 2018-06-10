@@ -37,9 +37,9 @@ public class GoodsDaoImpl implements IGoodsDao {
                 String name = rs.getString("name");
                 Double price = rs.getDouble("price");
                 Double remark = rs.getDouble("remark");
-                Double totalAmount =rs.getDouble("totalAmount");
-                int number =rs.getInt("number");
-                goods.setTotalAmount(totalAmount);
+
+                int number = rs.getInt("number");
+
                 goods.setNumber(number);
                 goods.setId(id);
                 goods.setName(name);
@@ -109,7 +109,7 @@ public class GoodsDaoImpl implements IGoodsDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            stmt.executeUpdate("insert into goods(name,price,remark,number) values('" + goods.getName() + "','" + goods.getPrice() + "','" + goods.getRemark() + ","+goods.getNumber()+");");
+            stmt.executeUpdate("insert into goods(name,price,remark,number) values('" + goods.getName() + "','" + goods.getPrice() + "','" + goods.getRemark() + "," + goods.getNumber() + ");");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -131,7 +131,7 @@ public class GoodsDaoImpl implements IGoodsDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            stmt.executeUpdate("update goods set name=" + goods.getName() + ",price=" + goods.getPrice() + ",remark=" + goods.getRemark() + ",number"+goods.getNumber()+");");
+            stmt.executeUpdate("update goods set name=" + goods.getName() + ",price=" + goods.getPrice() + ",remark=" + goods.getRemark() + ",number" + goods.getNumber() + ");");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

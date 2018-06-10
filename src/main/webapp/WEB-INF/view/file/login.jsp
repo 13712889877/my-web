@@ -11,7 +11,8 @@
     <input type="password" name="userPassword"  placeholder="密码" />
     <button type="submit">登录</button>
     <a href="/login?method=beforeRegister" ><input
-            class="btn_s" type="button" value="注册" /></a>
+            class="btn_s" type="button" value="注册" /></a><br>
+    <%=request.getAttribute("errorMsg") == null ? "" : request.getAttribute("errorMsg")%>
 </form>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.cg.service.impl;
 import com.cg.dao.IGoodsDao;
 import com.cg.dao.impl.GoodsDaoImpl;
 import com.cg.entity.Goods;
+import com.cg.entity.ShoppingCar;
 import com.cg.service.IGoodsService;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public class GoodsServiceImpl implements IGoodsService {
     //new一个全局的goodsDao
     private IGoodsDao goodsDao = new GoodsDaoImpl();
-
+    private Goods goods;
     /**
      * 服务层，从goodsDao中调取findGoods方法
      */
@@ -22,7 +23,6 @@ public class GoodsServiceImpl implements IGoodsService {
     public List<Goods> findGoods() {
         return goodsDao.findGoods();
     }
-
     /**
      * 服务层，从goodsDao中调取getGoods方法
      *
@@ -38,7 +38,6 @@ public class GoodsServiceImpl implements IGoodsService {
      *
      * @param goods
      */
-
     @Override
     public void saveGoods(Goods goods) {
         goodsDao.saveGoods(goods);
@@ -49,7 +48,6 @@ public class GoodsServiceImpl implements IGoodsService {
      *
      * @param goods
      */
-
     @Override
     public void updateGoods(Goods goods) {
         goodsDao.updateGoods(goods);
@@ -60,14 +58,21 @@ public class GoodsServiceImpl implements IGoodsService {
      *
      * @param id
      */
-
     @Override
     public void deleteGoods(int id) {
         goodsDao.deleteGoods(id);
-
     }
-
-
+    @Override
+    public void judgeCar(Goods goods, ShoppingCar car) {
+        if (car == null) {
+            ShoppingCar carList = new ShoppingCar();
+            carList.getGoodList().add(goods);
+            carList.calswewewe();
+        } else {
+            car.getGoodList().add(goods);
+            car.calswewewe();
+        }
+    }
 }
 
 
