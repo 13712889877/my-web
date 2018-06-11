@@ -2,6 +2,7 @@ package com.cg.service;
 
 import com.cg.entity.Goods;
 import com.cg.entity.ShoppingCar;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author  cg
  * @since  2018/2/2
  */
+@Service
 public interface IGoodsService {
 
     /**
