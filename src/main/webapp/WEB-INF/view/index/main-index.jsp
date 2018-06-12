@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>layout 后台大布局 - Layui</title>
+    <title>购物</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -20,7 +20,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">layui 后台布局</div>
+        <div class="layui-logo">购物界面</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">控制台</a></li>
@@ -85,10 +85,10 @@
             <div class="layui-carousel" id="test1" lay-filter="test1">
                 <div carousel-item="">
                     <div><img src="https://m.360buyimg.com/babel/jfs/t21148/263/500139364/86146/4a473fcf/5b0f68bfN7031ac10.jpg"/></div>
-                    <div><img/></div>
-                    <div><img/></div>
-                    <div><img/></div>
-                    <div><img/></div>
+                    <div><img src="https://img1.360buyimg.com/da/jfs/t22210/6/857311990/97597/aea1d022/5b1a5f8eNfca48a3a.jpg"/></div>
+                    <div><img src="https://image.suning.cn/uimg/aps/material/152846025226066530.jpg"/></div>
+                    <div><img src="https://image.suning.cn/uimg/aps/material/152825001199159378.jpg"/></div>
+                    <div><img src="https://image3.suning.cn/uimg/cms/img/152872236716215493.jpg"/></div>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
                 <div class="layui-col-md3">
                     <div class="grid-demo grid-demo-bg1">
                         <div class="layui-fluid">
-                            <img src="https://img11.360buyimg.com/n7/jfs/t3193/290/2633160715/81419/e2c85984/57e3a6eaN816e240d.jpg"/>
+                            <img style="width:160px;height:220px;" src="https://img11.360buyimg.com/n7/jfs/t3193/290/2633160715/81419/e2c85984/57e3a6eaN816e240d.jpg"/>
                         </div>
 
                         <div class="layui-fluid">
@@ -123,14 +123,14 @@
                 </div>
                 <div class="layui-col-md3">
                     <div class="grid-demo"><div class="layui-fluid">
-                        <img src="https://img11.360buyimg.com/n7/jfs/t3193/290/2633160715/81419/e2c85984/57e3a6eaN816e240d.jpg"/>
+                        <img style="width:160px;height:240px;" src="https://img12.360buyimg.com/n7/jfs/t16084/328/2094835951/118885/e6cc4ac/5a7baaffN653d1cb7.jpg"/>
                     </div>
 
                         <div class="layui-fluid">
-                            然也（RAE） 450ml双层不锈钢内胆保温杯 男女过滤车载杯子泡花草茶情侣茶杯水杯红色R3105
+                            汇仁 肾宝片 126片 男女肾虚亏阴阳虚 温阳补肾药品
                         </div>
                         <div class="layui-fluid">
-                            价格：54
+                            价格：299
                         </div>
                         <div class="layui-fluid">
                             <div class="layui-col-md6">
@@ -144,35 +144,35 @@
                 </div>
                 <div class="layui-col-md3">
                     <div class="grid-demo grid-demo-bg1"><div class="layui-fluid">
-                        <img src="https://img11.360buyimg.com/n7/jfs/t3193/290/2633160715/81419/e2c85984/57e3a6eaN816e240d.jpg"/>
+                        <img style="width:160px;height:240px;" src="https://img11.360buyimg.com/jdcms/s170x170_jfs/t2254/109/807229754/424204/89a72992/562b5274N3b4f95e4.jpg!q90!cc_170x170"/>
                     </div>
 
                         <div class="layui-fluid">
-                            然也（RAE） 450ml双层不锈钢内胆保温杯 男女过滤车载杯子泡花草茶情侣茶杯水杯红色R3105
+                            品鲜猫 经典培根 切片 腊味十足 烧烤 烟熏风味 500g
                         </div>
                         <div class="layui-fluid">
-                           价格：54
+                           价格：120
                         </div>
                         <div class="layui-fluid">
                             <div class="layui-col-md6">
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping">加入购物车</button>
+                                <button class="layui-btn add-shopp ing">加入购物车</button>
                             </div>
 
                         </div></div>
                 </div>
                 <div class="layui-col-md3">
                     <div class="grid-demo"><div class="layui-fluid">
-                        <img src="https://img11.360buyimg.com/n7/jfs/t3193/290/2633160715/81419/e2c85984/57e3a6eaN816e240d.jpg"/>
+                        <img style="width:160px;height:200px;" src="https://img10.360buyimg.com/mobilecms/s250x250_jfs/t7228/24/3565065812/126071/5cc8b8d1/59eedd46Nb697ed31.jpg"/>
                     </div>
 
                         <div class="layui-fluid">
-                            然也（RAE） 450ml双层不锈钢内胆保温杯 男女过滤车载杯子泡花草茶情侣茶杯水杯红色R3105
+                            dostyle 京选DM320QD 32英寸2K高清显示器(原装ADS-IPS面板 防眩光滤蓝光不闪屏 2HDMI/2DP/VGA/耳机接口)
                         </div>
                         <div class="layui-fluid">
-                            价格：54
+                            价格：1998
                         </div>
                         <div class="layui-fluid">
                             <div class="layui-col-md6">

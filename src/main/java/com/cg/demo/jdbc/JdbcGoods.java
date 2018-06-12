@@ -1,7 +1,6 @@
 package com.cg.demo.jdbc;
 
 import com.cg.entity.Goods;
-import com.cg.servlet.GoodsServlet;
 
 import java.sql.*;
 import java.util.ArrayList;

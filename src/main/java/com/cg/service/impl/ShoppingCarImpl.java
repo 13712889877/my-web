@@ -20,9 +20,5 @@ public class ShoppingCarImpl implements IShoppingCar {
         }
     }
 
-    @Override
-    public void deleteShopping(int id) {
 
-
-    }
 }

@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
 
-    <link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css?t=1527693307626"  media="all">
+    <link rel="stylesheet" href="/layui/css/layui.css?t=1527693307626"  media="all">
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -100,11 +100,10 @@
     </div>
 
     <div class="layui-footer">
-        <!-- 底部固定区域 -->
-        © layui.com - 底部固定区域
+
     </div>
 </div>
-<script src="//res.layui.com/layui/src/layui.js?t=1527693307626" charset="utf-8"></script>
+<script src="/layui/layui.js?t=1527693307626" charset="utf-8"></script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){
