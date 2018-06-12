@@ -3,7 +3,7 @@ package com.cg.mapper.generate;
 import com.cg.entity.generate.Goods;
 import com.cg.entity.generate.GoodsExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
+
 
 public interface GoodsMapper {
     int countByExample(GoodsExample example);
@@ -19,10 +19,6 @@ public interface GoodsMapper {
     List<Goods> selectByExample(GoodsExample example);
 
     Goods selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Goods record, @Param("example") GoodsExample example);
-
-    int updateByExample(@Param("record") Goods record, @Param("example") GoodsExample example);
 
     int updateByPrimaryKeySelective(Goods record);
 

@@ -1,20 +1,40 @@
-<!DOCTYPE web-app PUBLIC
-        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
 
-<web-app>
+    <display-name>Counter  Web  Application </display-name>
 
-    <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
-    <!--<servlet>-->
-        <!--<servlet-name>MainServlet</servlet-name>-->
-        <!--<servlet-class>com.cg.servlet.MainGoodsServlet</servlet-class>-->
-    <!--</servlet>-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+    </context-param>
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>MainServlet</servlet-name>-->
-        <!--<url-pattern>/main-index</url-pattern>-->
-    <!--</servlet-mapping>-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+</web-app>
+
+<!--<!DOCTYPE web-app PUBLIC-->
+        <!--"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"-->
+        <!--"http://java.sun.com/dtd/web-app_2_3.dtd" >-->
+
+<!--<web-app>-->
+
+    <!--<display-name>Archetype Created Web Application</display-name>-->
+
+
     <!--<servlet>-->
         <!--<servlet-name>LoginServlet</servlet-name>-->
         <!--<servlet-class>com.cg.servlet.LoginServlet</servlet-class>-->
@@ -53,18 +73,5 @@
         <!--<servlet-name>LoopFilePathServelt</servlet-name>-->
         <!--<url-pattern>/file</url-pattern>-->
     <!--</servlet-mapping>-->
-    <servlet>
-        <servlet-name>springmvc</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-*.xml</param-value>
-        </init-param>
-        <!-- <load-on-startup>1</load-on-startup> -->
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>springmvc</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-</web-app>
+<!--</web-app>-->
