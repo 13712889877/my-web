@@ -12,6 +12,7 @@
     </option>
   </component>
   <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js/shopping.js" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index/shopping.jsp" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

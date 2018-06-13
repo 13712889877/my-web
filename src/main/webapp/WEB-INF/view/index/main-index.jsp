@@ -16,8 +16,10 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="/layui/css/layui.css" media="all">
     <script src="/layui/layui.js" charset="utf-8"></script>
+    <script src="/js/shopping.js" charset="utf-8"></script>
+    <script src="/jquery/jquery-1.11.1.min.js"></script>
 </head>
-<body class="layui-layout-body">
+<sc class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">购物界面</div>
@@ -158,7 +160,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopp ing">加入购物车</button>
+                                <button class="layui-btn add-shopping">加入购物车</button>
                             </div>
 
                         </div></div>
@@ -179,7 +181,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping">加入购物车</button>
+                                <button class="layui-btn add-shopping" onclick="skip()">加入购物车</button>
                             </div>
 
                         </div></div>
@@ -219,13 +221,26 @@
         });
 
     });
-
-
-
-
 </script>
+
+<script type="text/javascript">
+    $.ajax({
+
+        type : 'post',
+        url : '${ship()}/add-shopping',
+        contentType : 'application/json;charset=utf-8',
+        //请求成功后的回调函数
+        success : function(data) {
+            alert(data.constructor);
+
+        }
+
+    });
+
+
+</script>>
 <script type="text/javascript">
     var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
-</body>
+</sc>
 </html>
