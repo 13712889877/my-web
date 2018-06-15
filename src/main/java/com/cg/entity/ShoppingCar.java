@@ -3,6 +3,7 @@ package com.cg.entity;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import com.cg.entity.generate.Goods;
 
 
 public class ShoppingCar {

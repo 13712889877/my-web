@@ -1,6 +1,6 @@
 package com.cg.service;
 
-import com.cg.entity.Goods;
+import com.cg.entity.generate.Goods;
 import com.cg.entity.ShoppingCar;
 import org.springframework.stereotype.Service;
 

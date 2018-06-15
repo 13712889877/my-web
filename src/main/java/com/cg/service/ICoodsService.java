@@ -11,7 +11,7 @@ import java.util.List;
  * @author  cg
  * @since  2018/2/2
  */
-
+@Service
 public interface ICoodsService {
 
     /**

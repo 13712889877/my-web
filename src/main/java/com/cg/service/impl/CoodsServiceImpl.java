@@ -1,14 +1,10 @@
 package com.cg.service.impl;
 
-import com.cg.dao.IGoodsDao;
-import com.cg.dao.impl.GoodsDaoImpl;
-
 import com.cg.entity.ShoppingCar;
 import com.cg.entity.generate.Goods;
 import com.cg.entity.generate.GoodsExample;
-import com.cg.mapper.generate.GoodsMapper;
+import com.cg.mapper.generate.CoodsMapper;
 import com.cg.service.ICoodsService;
-import com.cg.service.IGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +19,7 @@ public class CoodsServiceImpl implements ICoodsService {
     //new一个全局的goodsMapper
 
     @Autowired
-    private GoodsMapper goodsMapper;
+    private CoodsMapper coodsMapper;
 
     /**
      * 服务层，从goodsMapper中调取findGoods方法
@@ -32,7 +28,7 @@ public class CoodsServiceImpl implements ICoodsService {
     public List<Goods> findGoods() {
         GoodsExample e = new GoodsExample();
         GoodsExample.Criteria criteria = e.createCriteria();
-        return goodsMapper.selectByExample(e);
+        return coodsMapper.selectByExample(e);
     }
     /**
      * 服务层，从goodsMapper中调取getGoods方法
@@ -41,7 +37,7 @@ public class CoodsServiceImpl implements ICoodsService {
      */
     @Override
     public Goods getGoods(int id) {
-        return goodsMapper.selectByPrimaryKey(id);
+        return coodsMapper.selectByPrimaryKey(id);
     }
 
     /**

@@ -116,7 +116,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping">加入购物车</button>
+                                <button class="layui-btn add-shopping onclick=climeMe()"><input type="hidden" value="2"/>加入购物车</button>
                             </div>
 
                         </div>
@@ -139,7 +139,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping">加入购物车</button>
+                                <button class="layui-btn add-shopping onclick=climeMe()">加入购物车</button>
                             </div>
 
                         </div></div>
@@ -160,7 +160,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping">加入购物车</button>
+                                <button class="layui-btn add-shopping onclick=climeMe()"><input type="hidden" value="5"/>加入购物车</button>
                             </div>
 
                         </div></div>
@@ -181,7 +181,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping" onclick="skip()">加入购物车</button>
+                                <button id="pce"class="layui-btn add-shopping" onclick="climeMe()">加入购物车</button>
                             </div>
 
                         </div></div>
@@ -213,9 +213,24 @@
 
         $(document).ready(function(){
 
-
             $(".add-shopping").on("click",function(){
 
+                console.log("click....");
+                var id = $(this).attr("id");
+                console.log("click..id:."+id);
+                $.ajax({
+                    url:"/addCar/1",
+                    dataType:"json",
+                    type:"get",
+                    contentType:"application/json",
+                    async :true,
+                    success :function(data) {
+                        data.success();
+                        $("").text();
+                    },
+                    error:function () {
+
+                    }});
             });
 
         });
@@ -223,24 +238,40 @@
     });
 </script>
 
+<%--function<script type="text/javascript">--%>
+    <%--var xmlHttpReq = null;--%>
+    <%--function  climeMe() {--%>
+        <%--ajax();--%>
+    <%--}--%>
+
+        <%--function ajax() {--%>
+            <%--dataType:"json";--%>
+            <%--contentType:"application/json";--%>
+        <%--if(window.ActiveXObject){--%>
+            <%--xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");--%>
+        <%--}else if(window.XMLHttpRequest){--%>
+            <%--xmlHttpReq = new XMLHttpRequest();--%>
+        <%--}--%>
+    <%--if(xmlHttpReq != null){--%>
+        <%--xmlHttpReq.open("get","classpath:spring-*.xml");--%>
+        <%--xmlHttpReq.send();--%>
+        <%--xmlHttpReq.onreadystatechange = doResult;--%>
+    <%--}else{--%>
+        <%--alert("不支持");--%>
+    <%--}--%>
+
+<%--}--%>
+<%--function doResult(){--%>
+
+        <%--if(xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200) {--%>
+            <%--console.log(xmlHttpReq.responseText);--%>
+            <%--document.write(xmlhttp.responseText)--%>
+        <%--}--%>
+        <%--xmlhttp.send();--%>
+    <%--}--%>
+<%--</script>--%>
 <script type="text/javascript">
-    $.ajax({
-
-        type : 'post',
-        url : '${ship()}/add-shopping',
-        contentType : 'application/json;charset=utf-8',
-        //请求成功后的回调函数
-        success : function(data) {
-            alert(data.constructor);
-
-        }
-
-    });
-
-
-</script>>
-<script type="text/javascript">
-    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    var cnzz_protocol = (("https:"==document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
 </sc>
 </html>

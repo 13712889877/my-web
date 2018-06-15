@@ -1,7 +1,7 @@
 package com.cg.dao.impl;
 
 import com.cg.dao.IGoodsDao;
-import com.cg.entity.Goods;
+import com.cg.entity.generate.Goods;
 import com.cg.util.DBUtil;
 
 import java.sql.Connection;

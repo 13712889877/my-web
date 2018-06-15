@@ -2,7 +2,7 @@ package com.cg.service.impl;
 
 import com.cg.dao.IGoodsDao;
 import com.cg.dao.impl.GoodsDaoImpl;
-import com.cg.entity.Goods;
+import com.cg.entity.generate.Goods;
 import com.cg.entity.ShoppingCar;
 import com.cg.service.IGoodsService;
 

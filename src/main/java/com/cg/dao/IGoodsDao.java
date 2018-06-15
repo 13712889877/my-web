@@ -1,6 +1,6 @@
 package com.cg.dao;
 
-import com.cg.entity.Goods;
+import com.cg.entity.generate.Goods;
 
 
 import java.util.List;
@@ -23,10 +23,6 @@ public interface IGoodsDao {
 
     //通关id删除商品信息的方法
     void deleteGoods(int id);
-
-
-
-
 }
 
 
