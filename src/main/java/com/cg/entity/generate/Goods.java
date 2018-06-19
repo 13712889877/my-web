@@ -7,11 +7,12 @@ public class Goods {
 
     private Double price;
 
-    private Double remark;
+    private String remark;
 
     private Integer number;
 
     private Double totalamount;
+    private String url;
 
     public Integer getId() {
         return id;
@@ -21,12 +22,13 @@ public class Goods {
         this.id = id;
     }
 
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public Double getPrice() {
@@ -37,11 +39,11 @@ public class Goods {
         this.price = price;
     }
 
-    public Double getRemark() {
+    public String getRemark() {
         return remark;
     }
 
-    public void setRemark(Double remark) {
+    public void setRemark(String remark) {
         this.remark = remark;
     }
 
@@ -59,5 +61,13 @@ public class Goods {
 
     public void setTotalamount(Double totalamount) {
         this.totalamount = totalamount;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

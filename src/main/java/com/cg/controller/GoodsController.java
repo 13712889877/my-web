@@ -37,15 +37,14 @@ public class GoodsController {
 
         if (shoppingCar == null) {
             request.getSession().setAttribute("SHOPPING_CAR", new ShoppingCar());
-        }
-        Map<String, String> map = new HashMap<>();
+        }else {
+
 
         Goods goods = coodsServiceImpl.getGoods(id);
 
-        shoppingCar.getGoodList().add(goods);
-
+        shoppingCar.getGoodList().add(goods);}
+        Map<String, String> map = new HashMap<>();
         map.put("success", "true");
-        map.put("name","cg");
 
         return map;
 

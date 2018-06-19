@@ -5,8 +5,9 @@
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="price" property="price" jdbcType="DOUBLE" />
-        <result column="remark" property="remark" jdbcType="DOUBLE" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" />
         <result column="number" property="number" jdbcType="INTEGER" />
+        <result column="url" property="url" jdbcType="VARCHAR" />
         <result column="totalAmount" property="totalamount" jdbcType="DOUBLE" />
     </resultMap>
     <sql id="Example_Where_Clause" >
@@ -102,10 +103,10 @@
     </delete>
     <insert id="insert" parameterType="com.cg.entity.generate.Goods" >
         insert into goods (id, name, price,
-        remark, number, totalAmount
+        remark, number,url, totalAmount
         )
         values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE},
-        #{remark,jdbcType=DOUBLE}, #{number,jdbcType=INTEGER}, #{totalamount,jdbcType=DOUBLE}
+        #{remark,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER},#{url,jdbcType=VARCHAR}, #{totalamount,jdbcType=DOUBLE}
         )
     </insert>
     <insert id="insertSelective" parameterType="com.cg.entity.generate.Goods" >
@@ -126,6 +127,9 @@
             <if test="number != null" >
                 number,
             </if>
+            <if test="url != null" >
+                url,
+            </if>
             <if test="totalamount != null" >
                 totalAmount,
             </if>
@@ -141,10 +145,13 @@
                 #{price,jdbcType=DOUBLE},
             </if>
             <if test="remark != null" >
-                #{remark,jdbcType=DOUBLE},
+                #{remark,jdbcType=VARCHAR},
             </if>
             <if test="number != null" >
                 #{number,jdbcType=INTEGER},
+            </if>
+            <if test="url != null" >
+                #{url,jdbcType=VARCHAR},
             </if>
             <if test="totalamount != null" >
                 #{totalamount,jdbcType=DOUBLE},
@@ -170,10 +177,13 @@
                 price = #{record.price,jdbcType=DOUBLE},
             </if>
             <if test="record.remark != null" >
-                remark = #{record.remark,jdbcType=DOUBLE},
+                remark = #{record.remark,jdbcType=VARCHAR},
             </if>
             <if test="record.number != null" >
                 number = #{record.number,jdbcType=INTEGER},
+            </if>
+            <if test="record.url != null" >
+                url = #{record.url,jdbcType=VARCHAR},
             </if>
             <if test="record.totalamount != null" >
                 totalAmount = #{record.totalamount,jdbcType=DOUBLE},
@@ -188,8 +198,9 @@
         set id = #{record.id,jdbcType=INTEGER},
         name = #{record.name,jdbcType=VARCHAR},
         price = #{record.price,jdbcType=DOUBLE},
-        remark = #{record.remark,jdbcType=DOUBLE},
+        remark = #{record.remark,jdbcType=VARCHAR},
         number = #{record.number,jdbcType=INTEGER},
+        url = #{record.url,jdbcType=VARCHAR},
         totalAmount = #{record.totalamount,jdbcType=DOUBLE}
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
@@ -205,10 +216,13 @@
                 price = #{price,jdbcType=DOUBLE},
             </if>
             <if test="remark != null" >
-                remark = #{remark,jdbcType=DOUBLE},
+                remark = #{remark,jdbcType=VARCHAR},
             </if>
             <if test="number != null" >
                 number = #{number,jdbcType=INTEGER},
+            </if>
+            <if test="url != null" >
+                url = #{url,jdbcType=VARCHAR},
             </if>
             <if test="totalamount != null" >
                 totalAmount = #{totalamount,jdbcType=DOUBLE},
@@ -220,8 +234,9 @@
         update goods
         set name = #{name,jdbcType=VARCHAR},
         price = #{price,jdbcType=DOUBLE},
-        remark = #{remark,jdbcType=DOUBLE},
+        remark = #{remark,jdbcType=VARCHAR},
         number = #{number,jdbcType=INTEGER},
+        url = #{url,jdbcType=VARCHAR},
         totalAmount = #{totalamount,jdbcType=DOUBLE}
         where id = #{id,jdbcType=INTEGER}
     </update>

@@ -16,8 +16,8 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="/layui/css/layui.css" media="all">
     <script src="/layui/layui.js" charset="utf-8"></script>
+    <script src="/scripts/jquery-3.2.1.min.js"></script>
     <script src="/js/shopping.js" charset="utf-8"></script>
-    <script src="/jquery/jquery-1.11.1.min.js"></script>
 </head>
 <sc class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -116,7 +116,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping onclick=climeMe()"><input type="hidden" value="2"/>加入购物车</button>
+                                <button class="layui-btn add-shopping onclick=climeMe()"><input class='goods-id' type="hidden" value="2"/>加入购物车</button>
                             </div>
 
                         </div>
@@ -139,7 +139,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping onclick=climeMe()">加入购物车</button>
+                                <button class="layui-btn add-shopping  onclick=climeMe()"><input class='goods-id' type="hidden" value="4"/>加入购物车</button>
                             </div>
 
                         </div></div>
@@ -160,7 +160,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping onclick=climeMe()"><input type="hidden" value="5"/>加入购物车</button>
+                                <button class="layui-btn add-shopping onclick=climeMe()"><input class='goods-id' type="hidden" value="5"/>加入购物车</button>
                             </div>
 
                         </div></div>
@@ -181,7 +181,7 @@
                                 <button class="layui-btn">收藏</button>
                             </div>
                             <div class="layui-col-md6">
-                                <button id="pce"class="layui-btn add-shopping" onclick="climeMe()">加入购物车</button>
+                                <button id="pce"class="layui-btn add-shopping" onclick="climeMe()"><input class='goods-id' type="hidden" value="1"/>加入购物车</button>
                             </div>
 
                         </div></div>
@@ -210,31 +210,6 @@
             width: '100%',
             arrow: 'always'
         });
-
-        $(document).ready(function(){
-
-            $(".add-shopping").on("click",function(){
-
-                console.log("click....");
-                var id = $(this).attr("id");
-                console.log("click..id:."+id);
-                $.ajax({
-                    url:"/addCar/1",
-                    dataType:"json",
-                    type:"get",
-                    contentType:"application/json",
-                    async :true,
-                    success :function(data) {
-                        data.success();
-                        $("").text();
-                    },
-                    error:function () {
-
-                    }});
-            });
-
-        });
-
     });
 </script>
 

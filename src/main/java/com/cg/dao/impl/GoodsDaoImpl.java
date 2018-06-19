@@ -34,15 +34,15 @@ public class GoodsDaoImpl implements IGoodsDao {
             while (rs.next()) {
                 Goods goods = new Goods();
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
+                String url = rs.getString("url");
                 Double price = rs.getDouble("price");
-                Double remark = rs.getDouble("remark");
+                String remark = rs.getString("remark");
 
                 int number = rs.getInt("number");
 
                 goods.setNumber(number);
                 goods.setId(id);
-                goods.setName(name);
+                goods.setUrl(url);
                 goods.setPrice(price);
                 goods.setRemark(remark);
                 goodsList.add(goods);
@@ -76,12 +76,12 @@ public class GoodsDaoImpl implements IGoodsDao {
 
             while (rs.next()) {
                 int idi = rs.getInt("id");
-                String name = rs.getString("name");
+                String url = rs.getString("url");
                 Double price = rs.getDouble("price");
-                Double remark = rs.getDouble("remark");
+               String remark = rs.getString("remark");
                 int number = rs.getInt("number");
                 goods.setId(idi);
-                goods.setName(name);
+                goods.setUrl(url);
                 goods.setPrice(price);
                 goods.setRemark(remark);
                 goods.setNumber(number);
@@ -109,7 +109,7 @@ public class GoodsDaoImpl implements IGoodsDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            stmt.executeUpdate("insert into goods(name,price,remark,number) values('" + goods.getName() + "','" + goods.getPrice() + "','" + goods.getRemark() + "," + goods.getNumber() + ");");
+            stmt.executeUpdate("insert into goods(name,price,remark,number) values('" + goods.getUrl() + "','" + goods.getPrice() + "','" + goods.getRemark() + "," + goods.getNumber() + ");");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -131,7 +131,7 @@ public class GoodsDaoImpl implements IGoodsDao {
         try {
             conn = getConnection();
             stmt = conn.createStatement();
-            stmt.executeUpdate("update goods set name=" + goods.getName() + ",price=" + goods.getPrice() + ",remark=" + goods.getRemark() + ",number" + goods.getNumber() + ");");
+            stmt.executeUpdate("update goods set name=" + goods.getUrl() + ",price=" + goods.getPrice() + ",remark=" + goods.getRemark() + ",number" + goods.getNumber() + ");");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
