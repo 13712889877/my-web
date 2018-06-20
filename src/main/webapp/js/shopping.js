@@ -11,16 +11,15 @@ $(document).ready(function () {
             async: true,
             data:{'search':id},
             success:function(data)
-
             {
+                if(data.success == "true"){
+                    alert("该商品已经成功加入购物车");
 
-                alert('success');
-
+                }
             },
             error: function(){
 
                 alert('error');
-
             }
         });
     });

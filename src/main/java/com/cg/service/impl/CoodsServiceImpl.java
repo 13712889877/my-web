@@ -68,6 +68,9 @@ public class CoodsServiceImpl implements ICoodsService {
     @Override
     public void deleteGoods(int id) {
         //goodsMapper.deleteGoods(id);
+        GoodsExample e = new GoodsExample();
+        GoodsExample.Criteria criteria = e.createCriteria();
+         coodsMapper.deleteByPrimaryKey(id);
     }
     @Override
     public void judgeCar(Goods goods, ShoppingCar car) {

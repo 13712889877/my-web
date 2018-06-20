@@ -1,5 +1,6 @@
 <%@ page import="com.cg.entity.generate.Goods" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.cg.entity.ShoppingCar" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -15,6 +16,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="/layui/css/layui.css" media="all">
+    <style type="text/css" >
+
+        .bt{float:right;clear:both;
+        color:red;
+            font-size:20px;}
+
+    </style>
 </head>
 <sc class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
@@ -48,15 +56,14 @@
                 <li class="layui-nav-item"><a href="">退了</a></li>
             </ul>
         </div>
-
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
                     <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="javascript:;">购物</a>
+                        <a class="" href="/shopping/">购物</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="/main-index">商品大全</a></dd>
+                            <dd><a href="/shoppingList">购物车</a></dd>
 
                             <dd><a href="">超链接</a></dd>
                         </dl>
@@ -74,64 +81,54 @@
                 </ul>
             </div>
         </div>
-
         <div class="layui-body">
-
             <blockquote class="layui-elem-quote" style="margin-top:10px">通知：6月18号，全场商品，买一送一。</blockquote>
-
-            <!-- 内容主体区域 -->
-            <div style="padding:15px;">
-                <div class="layui-carousel" id="test1" lay-filter="test1">
-                    <div carousel-item="">
-                        <div><img
-                                src="https://m.360buyimg.com/babel/jfs/t21148/263/500139364/86146/4a473fcf/5b0f68bfN7031ac10.jpg"/>
-                        </div>
-                        <div><img
-                                src="https://img1.360buyimg.com/da/jfs/t22210/6/857311990/97597/aea1d022/5b1a5f8eNfca48a3a.jpg"/>
-                        </div>
-                        <div><img src="https://image.suning.cn/uimg/aps/material/152846025226066530.jpg"/></div>
-                        <div><img src="https://image.suning.cn/uimg/aps/material/152825001199159378.jpg"/></div>
-                        <div><img src="https://image3.suning.cn/uimg/cms/img/152872236716215493.jpg"/></div>
-                    </div>
-                </div>
-            </div>
             <div class="layui-fluid">
-                <%
-                    List<Goods> goodsList = (List<Goods>)request.getSession().getAttribute("SHOPPING_CAR");
-                    for (int i = 0; i < goodsList.size(); i++) {
-                        Goods goods = goodsList.get(i);
-                        if((i+1)%4==1){
+                <table class="layui-table" lay-skin="line">
+                    <colgroup>
+                        <col width="150">
+                        <col width="150">
+                        <col width="200">
+                        <col>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>商品ID</th>
+                        <th>商品名称</th>
+                        <th>商品数量</th>
+                        <th>商品单价</th>
+                        <th>小计</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%
+                        ShoppingCar car = (ShoppingCar) request.getAttribute("sessionList");
+                        List<Goods> goodsList = car.getGoodList();
+                        for (int i = 0; i < goodsList.size(); i++) {
+                            Goods goods = goodsList.get(i);
 
-                %>
-                <div class="layui-row layui-col-space1">
-                    <div class="grid-demo grid-demo-bg1">
-                        <div class="layui-fluid">
-                            <img style="width:160px;height:220px;"
-                                <%=goods.getUrl()%>>
-                        </div>
+                    %>
+                    <tr>
+                        <td><%=goods.getId()%>
+                        </td>
+                        <td><%=goods.getName()%>
+                        </td>
+                        <td><%=goods.getNumber()%>
+                        </td>
+                        <td><%=goods.getPrice()%>
+                        </td>
+                        <td><%=goods.getNumber()*goods.getPrice()%></td>
+                        <td><a
+                                href="<%=request.getContextPath()%>?delete=<%=i%>"><input
+                                class="btn_s" type="button" value="删除"/></a></td>
+                    </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+                <a class="bt" >总金额：<%=car.calswewewe()%>元</a>
+                <input type="button" class="bt" onclick="javascript:window.location='http://www.0756cn.com'" value= "结账">
 
-                        <div class="layui-fluid">
-                           <%=goods.getRemark()%>
-                        </div>
-                        <div class="layui-fluid">
-                            <%=goods.getPrice()%>
-                        </div>
-                        <div class="layui-fluid">
-                            <div class="layui-col-md6">
-                                <button class="layui-btn">收藏</button>
-                            </div>
-                            <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping onclick=climeMe()"><input type="hidden"
-                                                                                                value="<%=i+1%>"/>加入购物车
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                <%}%>
-                <%  if((i+1)%4==0) {
-                %>
-                </div>
-                 <% }}%>
             </div>
         </div>
         <div class="layui-footer">

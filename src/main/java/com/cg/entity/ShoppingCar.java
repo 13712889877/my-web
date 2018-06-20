@@ -21,15 +21,14 @@ public class ShoppingCar {
         this.goodList = goodList;
     }
 
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
+    public BigDecimal getTotalAmount() {
+        Goods goods = new Goods();
+        BigDecimal bigDecimal = new BigDecimal(goods.getNumber() * goods.getPrice());
+        return bigDecimal;
     }
 
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 
-    public void calswewewe(){
+    public BigDecimal calswewewe(){
         for(Goods g :goodList){
             if(g.getPrice()!=0) {
                 totalPrice = totalPrice.add(new BigDecimal(g.getPrice() * g.getNumber()));
@@ -37,6 +36,7 @@ public class ShoppingCar {
                 System.out.println("数据异常");
             }
         }
-    }
+   return totalPrice; }
+
 
 }

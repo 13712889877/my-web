@@ -1,3 +1,5 @@
+<%@ page import="com.cg.entity.generate.Goods" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
@@ -20,175 +22,130 @@
     <script src="/js/shopping.js" charset="utf-8"></script>
 </head>
 <sc class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-logo">购物界面</div>
-        <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">控制台</a></li>
-            <li class="layui-nav-item"><a href="">商品管理</a></li>
-            <li class="layui-nav-item"><a href="">用户</a></li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">其它系统</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">邮件管理</a></dd>
-                    <dd><a href="">消息管理</a></dd>
-                    <dd><a href="">授权管理</a></dd>
-                </dl>
-            </li>
-        </ul>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-                <a href="javascript:;">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
-                </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item"><a href="">退了</a></li>
-        </ul>
-    </div>
-
-    <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">购物</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="/main-index">商品大全</a></dd>
-
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
-                </li>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">购物界面</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">控制台</a></li>
+                <li class="layui-nav-item"><a href="">商品管理</a></li>
+                <li class="layui-nav-item"><a href="">用户</a></li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
+                    <a href="javascript:;">其它系统</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
+                        <dd><a href="">邮件管理</a></dd>
+                        <dd><a href="">消息管理</a></dd>
+                        <dd><a href="">授权管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">云市场</a></li>
-                <li class="layui-nav-item"><a href="">发布商品</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        贤心
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退了</a></li>
             </ul>
         </div>
-    </div>
 
-    <div class="layui-body">
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="/shopping">购物</a>
+                        <dl class="layui-nav-child">
+                            <dd class="myCar"><a href="/shoppingList">购物车</a></dd>
 
-        <blockquote class="layui-elem-quote" style="margin-top:10px">通知：6月18号，全场商品，买一送一。</blockquote>
-
-        <!-- 内容主体区域 -->
-        <div style="padding:15px;">
-            <div class="layui-carousel" id="test1" lay-filter="test1">
-                <div carousel-item="">
-                    <div><img src="https://m.360buyimg.com/babel/jfs/t21148/263/500139364/86146/4a473fcf/5b0f68bfN7031ac10.jpg"/></div>
-                    <div><img src="https://img1.360buyimg.com/da/jfs/t22210/6/857311990/97597/aea1d022/5b1a5f8eNfca48a3a.jpg"/></div>
-                    <div><img src="https://image.suning.cn/uimg/aps/material/152846025226066530.jpg"/></div>
-                    <div><img src="https://image.suning.cn/uimg/aps/material/152825001199159378.jpg"/></div>
-                    <div><img src="https://image3.suning.cn/uimg/cms/img/152872236716215493.jpg"/></div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="layui-fluid">
-            <div class="layui-row layui-col-space1">
-                <div class="layui-col-md3">
-                    <div class="grid-demo grid-demo-bg1">
-                        <div class="layui-fluid">
-                            <img style="width:160px;height:220px;" src="https://img11.360buyimg.com/n7/jfs/t3193/290/2633160715/81419/e2c85984/57e3a6eaN816e240d.jpg"/>
-                        </div>
-
-                        <div class="layui-fluid">
-                            然也（RAE） 450ml双层不锈钢内胆保温杯 男女过滤车载杯子泡花草茶情侣茶杯水杯红色R3105
-                        </div>
-                        <div class="layui-fluid">
-                            价格：54
-                        </div>
-                        <div class="layui-fluid">
-                            <div class="layui-col-md6">
-                                <button class="layui-btn">收藏</button>
-                            </div>
-                            <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping onclick=climeMe()"><input class='goods-id' type="hidden" value="2"/>加入购物车</button>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="layui-col-md3">
-                    <div class="grid-demo"><div class="layui-fluid">
-                        <img style="width:160px;height:240px;" src="https://img12.360buyimg.com/n7/jfs/t16084/328/2094835951/118885/e6cc4ac/5a7baaffN653d1cb7.jpg"/>
-                    </div>
-
-                        <div class="layui-fluid">
-                            汇仁 肾宝片 126片 男女肾虚亏阴阳虚 温阳补肾药品
-                        </div>
-                        <div class="layui-fluid">
-                            价格：299
-                        </div>
-                        <div class="layui-fluid">
-                            <div class="layui-col-md6">
-                                <button class="layui-btn">收藏</button>
-                            </div>
-                            <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping  onclick=climeMe()"><input class='goods-id' type="hidden" value="4"/>加入购物车</button>
-                            </div>
-
-                        </div></div>
-                </div>
-                <div class="layui-col-md3">
-                    <div class="grid-demo grid-demo-bg1"><div class="layui-fluid">
-                        <img style="width:160px;height:240px;" src="https://img11.360buyimg.com/jdcms/s170x170_jfs/t2254/109/807229754/424204/89a72992/562b5274N3b4f95e4.jpg!q90!cc_170x170"/>
-                    </div>
-
-                        <div class="layui-fluid">
-                            品鲜猫 经典培根 切片 腊味十足 烧烤 烟熏风味 500g
-                        </div>
-                        <div class="layui-fluid">
-                           价格：120
-                        </div>
-                        <div class="layui-fluid">
-                            <div class="layui-col-md6">
-                                <button class="layui-btn">收藏</button>
-                            </div>
-                            <div class="layui-col-md6">
-                                <button class="layui-btn add-shopping onclick=climeMe()"><input class='goods-id' type="hidden" value="5"/>加入购物车</button>
-                            </div>
-
-                        </div></div>
-                </div>
-                <div class="layui-col-md3">
-                    <div class="grid-demo"><div class="layui-fluid">
-                        <img style="width:160px;height:200px;" src="https://img10.360buyimg.com/mobilecms/s250x250_jfs/t7228/24/3565065812/126071/5cc8b8d1/59eedd46Nb697ed31.jpg"/>
-                    </div>
-
-                        <div class="layui-fluid">
-                            dostyle 京选DM320QD 32英寸2K高清显示器(原装ADS-IPS面板 防眩光滤蓝光不闪屏 2HDMI/2DP/VGA/耳机接口)
-                        </div>
-                        <div class="layui-fluid">
-                            价格：1998
-                        </div>
-                        <div class="layui-fluid">
-                            <div class="layui-col-md6">
-                                <button class="layui-btn">收藏</button>
-                            </div>
-                            <div class="layui-col-md6">
-                                <button id="pce"class="layui-btn add-shopping" onclick="climeMe()"><input class='goods-id' type="hidden" value="1"/>加入购物车</button>
-                            </div>
-
-                        </div></div>
-                </div>
+                            <dd><a href="http://www.baidu.com">百度</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">解决方案</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">列表一</a></dd>
+                            <dd><a href="javascript:;">列表二</a></dd>
+                            <dd><a href="">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">云市场</a></li>
+                    <li class="layui-nav-item"><a href="">发布商品</a></li>
+                </ul>
             </div>
         </div>
 
+        <div class="layui-body">
+
+            <blockquote class="layui-elem-quote" style="margin-top:10px">通知：6月18号，全场商品，买一送一。</blockquote>
+
+            <!-- 内容主体区域 -->
+            <div style="padding:15px;">
+                <div class="layui-carousel" id="test1" lay-filter="test1">
+                    <div carousel-item="">
+                        <div><img
+                                src="https://m.360buyimg.com/babel/jfs/t21148/263/500139364/86146/4a473fcf/5b0f68bfN7031ac10.jpg"/>
+                        </div>
+                        <div><img
+                                src="https://img1.360buyimg.com/da/jfs/t22210/6/857311990/97597/aea1d022/5b1a5f8eNfca48a3a.jpg"/>
+                        </div>
+                        <div><img src="https://image.suning.cn/uimg/aps/material/152846025226066530.jpg"/></div>
+                        <div><img src="https://image.suning.cn/uimg/aps/material/152825001199159378.jpg"/></div>
+                        <div><img src="https://image3.suning.cn/uimg/cms/img/152872236716215493.jpg"/></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="layui-fluid">
+                <% List<Goods> goodsList = (List<Goods>) request.getAttribute("goods");%>
+                <%for (int i = 0; i < goodsList.size(); i++) {%>
+                <%Goods good = goodsList.get(i);%>
+                <%if ((i + 1) % 4 == 1) {%>
+                <div class="layui-row layui-col-space1">
+                    <%}%>
+                    <div class="layui-col-md3">
+                        <div class="grid-demo grid-demo-bg1">
+                            <div class="layui-fluid">
+                                <img style="width:160px;height:220px;"
+                                     src="https://img11.360buyimg.com/n7/jfs/t3193/290/2633160715/81419/e2c85984/57e3a6eaN816e240d.jpg"/>
+                            </div>
+
+                            <div class="layui-fluid">
+                                <%=good.getName()%>
+                            </div>
+                            <div class="layui-fluid">
+                                <%=good.getRemark()%>
+                            </div>
+                            <div class="layui-fluid">
+                                价格：<%=good.getPrice()%>
+                            </div>
+                            <div class="layui-fluid">
+                                <div class="layui-col-md6">
+                                    <button class="layui-btn">收藏</button>
+                                </div>
+                                <div class="layui-col-md6">
+                                    <button class="layui-btn add-shopping onclick=climeMe()">
+                                        <input class='goods-id' type="hidden" value="<%=good.getId()%>"/>加入购物车
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <%if ((i + 1) % 4 == 0) {%>
+                </div>
+                <%}%>
+                <%}%>
+            </div>
+        </div>
 
 
     </div>
@@ -197,56 +154,56 @@
         <!-- 底部固定区域 -->
         © layui.com - 底部固定区域
     </div>
-</div>
-<script>
-    //JavaScript代码区域
-    layui.use(['carousel','element','jquery'], function () {
-        var element = layui.element;
-        var $ = layui.$;
-        var carousel = layui.carousel;
-        //常规轮播
-        carousel.render({
-            elem: '#test1',
-            width: '100%',
-            arrow: 'always'
+    </div>
+    <script>
+        //JavaScript代码区域
+        layui.use(['carousel', 'element', 'jquery'], function () {
+            var element = layui.element;
+            var $ = layui.$;
+            var carousel = layui.carousel;
+            //常规轮播
+            carousel.render({
+                elem: '#test1',
+                width: '100%',
+                arrow: 'always'
+            });
         });
-    });
-</script>
+    </script>
 
-<%--function<script type="text/javascript">--%>
+    <%--function<script type="text/javascript">--%>
     <%--var xmlHttpReq = null;--%>
     <%--function  climeMe() {--%>
-        <%--ajax();--%>
+    <%--ajax();--%>
     <%--}--%>
 
-        <%--function ajax() {--%>
-            <%--dataType:"json";--%>
-            <%--contentType:"application/json";--%>
-        <%--if(window.ActiveXObject){--%>
-            <%--xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");--%>
-        <%--}else if(window.XMLHttpRequest){--%>
-            <%--xmlHttpReq = new XMLHttpRequest();--%>
-        <%--}--%>
+    <%--function ajax() {--%>
+    <%--dataType:"json";--%>
+    <%--contentType:"application/json";--%>
+    <%--if(window.ActiveXObject){--%>
+    <%--xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");--%>
+    <%--}else if(window.XMLHttpRequest){--%>
+    <%--xmlHttpReq = new XMLHttpRequest();--%>
+    <%--}--%>
     <%--if(xmlHttpReq != null){--%>
-        <%--xmlHttpReq.open("get","classpath:spring-*.xml");--%>
-        <%--xmlHttpReq.send();--%>
-        <%--xmlHttpReq.onreadystatechange = doResult;--%>
+    <%--xmlHttpReq.open("get","classpath:spring-*.xml");--%>
+    <%--xmlHttpReq.send();--%>
+    <%--xmlHttpReq.onreadystatechange = doResult;--%>
     <%--}else{--%>
-        <%--alert("不支持");--%>
+    <%--alert("不支持");--%>
     <%--}--%>
 
-<%--}--%>
-<%--function doResult(){--%>
-
-        <%--if(xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200) {--%>
-            <%--console.log(xmlHttpReq.responseText);--%>
-            <%--document.write(xmlhttp.responseText)--%>
-        <%--}--%>
-        <%--xmlhttp.send();--%>
     <%--}--%>
-<%--</script>--%>
-<script type="text/javascript">
-    var cnzz_protocol = (("https:"==document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+    <%--function doResult(){--%>
+
+    <%--if(xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200) {--%>
+    <%--console.log(xmlHttpReq.responseText);--%>
+    <%--document.write(xmlhttp.responseText)--%>
+    <%--}--%>
+    <%--xmlhttp.send();--%>
+    <%--}--%>
+    <%--</script>--%>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
 </sc>
 </html>

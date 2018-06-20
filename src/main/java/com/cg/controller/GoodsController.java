@@ -6,12 +6,14 @@ import com.cg.entity.generate.Goods;
 import com.cg.service.ICoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -23,9 +25,22 @@ public class GoodsController {
     private ICoodsService coodsServiceImpl;
 
     @RequestMapping("/shopping")
-    public String main() {
+    public String main(Model model) {
 
+        List<Goods> goods = coodsServiceImpl.findGoods();
+
+        model.addAttribute("goods", goods);
         return "index/main-index";
+    }
+
+
+    @RequestMapping("/shoppingList")
+    public String shoppingList(HttpServletRequest req, Model model) {
+
+        ShoppingCar car = (ShoppingCar) req.getSession().getAttribute("SHOPPING_CAR");
+        model.addAttribute("sessionList", car);
+
+        return "index/add-car";
     }
 
     @RequestMapping(value = "/addCar/{id}")
@@ -37,13 +52,18 @@ public class GoodsController {
 
         if (shoppingCar == null) {
             request.getSession().setAttribute("SHOPPING_CAR", new ShoppingCar());
-        }else {
+        } else {
+            Goods goods = coodsServiceImpl.getGoods(id);
+            for( Goods goods1:shoppingCar.getGoodList()) {
+                if (goods.equals(goods1))
+                    goods.setNumber(goods.getNumber() + 1);
+                shoppingCar.getGoodList().add(goods);
+            }
 
+        }
+        Map<String, String> map = new HashMap<> ();
 
-        Goods goods = coodsServiceImpl.getGoods(id);
-
-        shoppingCar.getGoodList().add(goods);}
-        Map<String, String> map = new HashMap<>();
+        //格式
         map.put("success", "true");
 
         return map;
