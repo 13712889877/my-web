@@ -52,16 +52,19 @@ public class GoodsController {
 
         if (shoppingCar == null) {
             request.getSession().setAttribute("SHOPPING_CAR", new ShoppingCar());
-        } else {
+        } else if(shoppingCar!=null){
             Goods goods = coodsServiceImpl.getGoods(id);
-            for( Goods goods1:shoppingCar.getGoodList()) {
-                if (goods.equals(goods1))
-                    goods.setNumber(goods.getNumber() + 1);
-                shoppingCar.getGoodList().add(goods);
+            for (Goods goods1 : shoppingCar.getGoodList()) {
+                if (goods1.getId().equals(id)) {
+                    goods1.setNumber(goods1.getNumber() + 1);
+                } else {
+                    shoppingCar.getGoodList().add(goods);
+                }
             }
-
         }
-        Map<String, String> map = new HashMap<> ();
+
+
+        Map<String, String> map = new HashMap<>();
 
         //格式
         map.put("success", "true");
