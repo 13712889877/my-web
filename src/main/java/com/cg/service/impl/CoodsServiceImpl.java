@@ -83,6 +83,20 @@ public class CoodsServiceImpl implements ICoodsService {
 //            car.calswewewe();
 //        }
     }
-}
+
+    @Override
+    public void saveShopping(Goods goods, ShoppingCar shoppingCar) {
+            for (int i = 0; i <= shoppingCar.getGoodList().size(); i++) {
+                Goods good = shoppingCar.getGoodList().get(i);
+                if (goods.getId() == good.getId()) {
+                    good.setNumber(good.getNumber() + 1);
+                }else {
+                    shoppingCar.getGoodList().add(goods);
+                }
+            }
+        }
+
+
+    }
 
 

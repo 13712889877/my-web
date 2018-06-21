@@ -38,5 +38,5 @@ public interface ICoodsService {
     //接口通过id删除商品信息的方法
     void deleteGoods(int id);
     void judgeCar(Goods goods, ShoppingCar car);
-
+    void saveShopping(Goods goods, ShoppingCar car);
 }

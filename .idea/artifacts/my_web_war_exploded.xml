@@ -13,7 +13,8 @@
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.1" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />
           <element id="library" level="project" name="Maven: net.sf.ezmorph:ezmorph:1.0.3" />
-          <element id="library" level="project" name="Maven: org.webjars:jquery:3.0.0-alpha1" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.17.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.17.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.17.RELEASE" />

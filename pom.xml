@@ -19,6 +19,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
+
     <dependencies>
         <dependency>
             <groupId>net.sf.json-lib</groupId>
@@ -47,11 +48,19 @@
             <version>1.0.3</version>
 
         </dependency>
+
+
+
+        <!--ajax jackson-mapping jar -->
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.0.0-alpha1</version>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
         </dependency>
+
+        <!-- Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/databind/JavaType -->
+        <!--ajax jackson-databind jar -->
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -181,32 +190,32 @@
 
         <plugins>
             <!--<plugin>-->
-                <!--<groupId>org.mybatis.generator</groupId>-->
-                <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
-                <!--<version>1.3.2</version>-->
-                <!--<configuration>-->
+            <!--<groupId>org.mybatis.generator</groupId>-->
+            <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
+            <!--<version>1.3.2</version>-->
+            <!--<configuration>-->
 
-                    <!--&lt;!&ndash;配置文件的位置&ndash;&gt;-->
-                    <!--<configurationFile>src/main/resources/generatorConfig.xml</configurationFile>-->
-                    <!--<verbose>true</verbose>-->
-                    <!--<overwrite>false</overwrite>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
+            <!--&lt;!&ndash;配置文件的位置&ndash;&gt;-->
+            <!--<configurationFile>src/main/resources/generatorConfig.xml</configurationFile>-->
+            <!--<verbose>true</verbose>-->
+            <!--<overwrite>false</overwrite>-->
+            <!--</configuration>-->
+            <!--<executions>-->
+            <!--<execution>-->
 
-                        <!--<id>Generate MyBatis Artifacts</id>-->
-                        <!--<goals>-->
-                            <!--<goal>generate</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.mybatis.generator</groupId>-->
-                        <!--<artifactId>mybatis-generator-core</artifactId>-->
-                        <!--<version>1.3.2</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
+            <!--<id>Generate MyBatis Artifacts</id>-->
+            <!--<goals>-->
+            <!--<goal>generate</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--<dependencies>-->
+            <!--<dependency>-->
+            <!--<groupId>org.mybatis.generator</groupId>-->
+            <!--<artifactId>mybatis-generator-core</artifactId>-->
+            <!--<version>1.3.2</version>-->
+            <!--</dependency>-->
+            <!--</dependencies>-->
             <!--</plugin>-->
 
             <plugin>

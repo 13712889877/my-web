@@ -24,6 +24,8 @@ public class GoodsController {
 
     private ICoodsService coodsServiceImpl;
 
+
+
     @RequestMapping("/shopping")
     public String main(Model model) {
 
@@ -32,8 +34,6 @@ public class GoodsController {
         model.addAttribute("goods", goods);
         return "index/main-index";
     }
-
-
     @RequestMapping("/shoppingList")
     public String shoppingList(HttpServletRequest req, Model model) {
 
@@ -42,7 +42,6 @@ public class GoodsController {
 
         return "index/add-car";
     }
-
     @RequestMapping(value = "/addCar/{id}")
     @ResponseBody
     public Map<String, String> addShoppingCar(HttpServletRequest request, @PathVariable int id) {
@@ -52,25 +51,12 @@ public class GoodsController {
 
         if (shoppingCar == null) {
             request.getSession().setAttribute("SHOPPING_CAR", new ShoppingCar());
-        } else if(shoppingCar!=null){
-            Goods goods = coodsServiceImpl.getGoods(id);
-            for (Goods goods1 : shoppingCar.getGoodList()) {
-                if (goods1.getId().equals(id)) {
-                    goods1.setNumber(goods1.getNumber() + 1);
-                } else {
-                    shoppingCar.getGoodList().add(goods);
-                }
-            }
-        }
-
-
+        };
+        Goods goods = coodsServiceImpl.getGoods(id);
+        coodsServiceImpl.saveShopping(goods, shoppingCar);
         Map<String, String> map = new HashMap<>();
-
-        //格式
         map.put("success", "true");
-
         return map;
-
     }
 }
 

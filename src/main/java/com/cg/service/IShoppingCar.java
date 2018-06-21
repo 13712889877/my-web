@@ -2,10 +2,9 @@ package com.cg.service;
 
 import com.cg.entity.generate.Goods;
 import com.cg.entity.ShoppingCar;
+import org.springframework.stereotype.Service;
 
-/**
- * Created by IYFT on 2018/6/11.
- */
+@Service
 public interface IShoppingCar {
     void saveShopping(Goods goods, ShoppingCar car);
 
