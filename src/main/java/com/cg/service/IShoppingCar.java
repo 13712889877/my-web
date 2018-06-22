@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface IShoppingCar {
     void saveShopping(Goods goods, ShoppingCar car);
-
-}
+    void deleteShopping(int id);
+ }

@@ -1,13 +1,11 @@
 package com.cg.servlet;
 
-import com.cg.demo.jdbc.JdbcUser;
 import com.cg.entity.ShoppingCar;
-import com.cg.entity.User;
+import com.cg.entity.generate.User;
 import com.cg.service.IUserService;
 import com.cg.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -85,7 +83,7 @@ public class LoginServlet extends HttpServlet {
         User user =userService.getUser(userName);
         if (user != null && userPassword.equals(user.getUserPassword())) {
             request.getSession().setAttribute("SHOPPING_CAR", new ShoppingCar());
-            response.sendRedirect("/goods?method=shopList");
+            response.sendRedirect("/goods?method=shopping");
         } else {
             request.setAttribute("errorMsg", "账号和密码错误");
             request.getRequestDispatcher("WEB-INF/view/file/login.jsp").forward(request, response);

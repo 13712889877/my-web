@@ -1,5 +1,6 @@
 package com.cg.mapper.generate;
 
+import com.cg.entity.generate.GoodsExample;
 import com.cg.entity.generate.User;
 import com.cg.entity.generate.UserExample;
 import java.util.List;
@@ -16,7 +17,7 @@ public interface UserMapper {
 
     int insertSelective(User record);
 
-    List<User> selectByExample(UserExample example);
+    List<User> selectByExample(GoodsExample example);
 
     User selectByPrimaryKey(Integer userId);
 

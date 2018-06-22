@@ -3,6 +3,7 @@ package com.cg.mapper.generate;
 import com.cg.entity.generate.Goods;
 import com.cg.entity.generate.GoodsExample;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Mapper

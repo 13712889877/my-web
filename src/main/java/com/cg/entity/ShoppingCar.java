@@ -38,5 +38,8 @@ public class ShoppingCar {
         }
    return totalPrice; }
 
-
+public void deleteShopping(ShoppingCar car, int id){
+       car.getGoodList().remove(id);
 }
+}
+

@@ -1,6 +1,6 @@
 package com.cg.service;
 
-import com.cg.entity.User;
+import com.cg.entity.generate.User;
 
 import java.util.List;
 

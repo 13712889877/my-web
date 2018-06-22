@@ -21,9 +21,7 @@ import java.util.Map;
 public class GoodsController {
 
     @Autowired
-
     private ICoodsService coodsServiceImpl;
-
 
 
     @RequestMapping("/shopping")
@@ -31,9 +29,10 @@ public class GoodsController {
 
         List<Goods> goods = coodsServiceImpl.findGoods();
 
-        model.addAttribute("goods", goods);
+        model.addAttribute("go ods", goods);
         return "index/main-index";
     }
+
     @RequestMapping("/shoppingList")
     public String shoppingList(HttpServletRequest req, Model model) {
 
@@ -42,6 +41,7 @@ public class GoodsController {
 
         return "index/add-car";
     }
+
     @RequestMapping(value = "/addCar/{id}")
     @ResponseBody
     public Map<String, String> addShoppingCar(HttpServletRequest request, @PathVariable int id) {
@@ -51,14 +51,28 @@ public class GoodsController {
 
         if (shoppingCar == null) {
             request.getSession().setAttribute("SHOPPING_CAR", new ShoppingCar());
-        };
-        Goods goods = coodsServiceImpl.getGoods(id);
-        coodsServiceImpl.saveShopping(goods, shoppingCar);
+        } else {
+            Goods goods = coodsServiceImpl.getGoods(id);
+            for (Goods good : shoppingCar.getGoodList()) {
+                if (goods.getId() == good.getId()) {
+                    good.setNumber(good.getNumber() + 1);
+                } else {
+                    shoppingCar.getGoodList().add(goods);
+                }
+            }
+
+        }
         Map<String, String> map = new HashMap<>();
         map.put("success", "true");
         return map;
     }
+    @RequestMapping(value = "/delete")
+    public String delete(ShoppingCar shoppingCar,int id) {
+shoppingCar.deleteShopping(shoppingCar,id);
+return "index/add-car";
+    }
 }
+
 
 
 
