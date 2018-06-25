@@ -1,6 +1,7 @@
 package com.cg.service;
 
 import com.cg.entity.generate.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * 定义一个用户服务的接口
  */
+@Service
 public interface IUserService {
 
     //接口创建一个查找所有用户信息的方法

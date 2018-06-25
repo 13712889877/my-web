@@ -5,6 +5,7 @@ import com.cg.entity.generate.User;
 import com.cg.mapper.generate.UserMapper;
 import com.cg.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * 实现用户服务的接口
  */
+@Service
 public class UserServiceImpl implements IUserService {
     @Autowired
     private UserMapper userMapper;

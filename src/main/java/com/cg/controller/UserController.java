@@ -13,14 +13,10 @@ import java.util.List;
 public class UserController {
     @Autowired
     private IUserService userServiceImpl;
-
-    @Autowired
-    private IUserService getUserServiceImpl;
-
     @RequestMapping("/list")
     public String list(){
 
-        List<User> Users  =  getUserServiceImpl.findUser();
+        List<User> Users  =  userServiceImpl.findUser();
         return "user/list";
 
     }

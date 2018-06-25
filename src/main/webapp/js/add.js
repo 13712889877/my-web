@@ -1,10 +1,10 @@
 
 $(document).ready(function () {
-    $(".add-shopping").on("click", function () {
-        var id = $(this).find(".goods-id").attr('value');
+    $(".add").on("click", function () {
+        var id = $(this).find(".goods-id").val();
         console.log(id);
         $.ajax({
-            url: "/addCar/" + id,
+            url: "/cart/addCar/" + id,
             dataType: "json",
             type: "get",
             contentType: "application/json",

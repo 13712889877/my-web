@@ -1,6 +1,5 @@
 package com.cg.controller;
 
-
 import com.cg.entity.ShoppingCar;
 import com.cg.entity.generate.Goods;
 import com.cg.service.ICoodsService;
@@ -16,33 +15,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * Created by 15659 on 2018/6/23.
+ */
+@RequestMapping("/cart")
 @Controller
-public class GoodsController {
+public class CartController {
 
     @Autowired
     private ICoodsService coodsServiceImpl;
+    @RequestMapping("/list")
+        public String main (Model model){
 
+            List<Goods> goods = coodsServiceImpl.findGoods();
 
-    @RequestMapping("/shopping")
-    public String main(Model model) {
-
-        List<Goods> goods = coodsServiceImpl.findGoods();
-
-        model.addAttribute("go ods", goods);
-        return "index/main-index";
-    }
-
-    @RequestMapping("/shoppingList")
+            model.addAttribute("goods", goods);
+            return "cart/cart-list";
+        }
+    @RequestMapping("/carList")
     public String shoppingList(HttpServletRequest req, Model model) {
 
         ShoppingCar car = (ShoppingCar) req.getSession().getAttribute("SHOPPING_CAR");
         model.addAttribute("sessionList", car);
 
-        return "index/add-car";
+        return "cart/add-car";
     }
-
-    @RequestMapping(value = "/addCar/{id}")
+    
+        @RequestMapping(value = "/addCar/{id}")
     @ResponseBody
     public Map<String, String> addShoppingCar(HttpServletRequest request, @PathVariable int id) {
         System.out.println(id);
@@ -53,27 +52,20 @@ public class GoodsController {
             request.getSession().setAttribute("SHOPPING_CAR", new ShoppingCar());
         } else {
             Goods goods = coodsServiceImpl.getGoods(id);
+            boolean flag = true;
             for (Goods good : shoppingCar.getGoodList()) {
                 if (goods.getId() == good.getId()) {
+                    flag = false;
                     good.setNumber(good.getNumber() + 1);
-                } else {
-                    shoppingCar.getGoodList().add(goods);
                 }
             }
-
+            //表示购物车中不存在该商品
+            if(flag){
+                shoppingCar.getGoodList().add(goods);
+            }
         }
         Map<String, String> map = new HashMap<>();
         map.put("success", "true");
         return map;
     }
-    @RequestMapping(value = "/delete")
-    public String delete(ShoppingCar shoppingCar,int id) {
-shoppingCar.deleteShopping(shoppingCar,id);
-return "index/add-car";
-    }
 }
-
-
-
-
-

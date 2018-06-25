@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/layui/css/layui.css" media="all">
     <script src="/layui/layui.js" charset="utf-8"></script>
     <script src="/scripts/jquery-3.2.1.min.js"></script>
-    <script src="/js/shopping.js" charset="utf-8"></script>
+    <script src="/js/add.js" charset="utf-8"></script>
 </head>
 <sc class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
@@ -59,9 +59,9 @@
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
                     <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="/shopping">购物</a>
+                        <a class="" href="/cart/list">购物</a>
                         <dl class="layui-nav-child">
-                            <dd class="myCar"><a href="/shoppingList">购物车</a></dd>
+                            <dd class="myCar"><a href="/cart/carList">购物车</a></dd>
 
                             <dd><a href="http://www.baidu.com">百度</a></dd>
                         </dl>
@@ -105,7 +105,7 @@
 
             <div class="layui-fluid">
                 <% List<Goods> goodsList = (List<Goods>) request.getAttribute("goods");%>
-                <%for (int i = 0; i < goodsList.size(); i++) {%>
+                <%for (int i = 0; i < goodsList.size();i++) {%>
                 <%Goods good = goodsList.get(i);%>
                 <%if ((i + 1) % 4 == 1) {%>
                 <div class="layui-row layui-col-space1">
@@ -131,7 +131,7 @@
                                     <button class="layui-btn">收藏</button>
                                 </div>
                                 <div class="layui-col-md6">
-                                    <button class="layui-btn add-shopping onclick=climeMe()">
+                                    <button class="layui-btn add onclick=climeMe()">
                                         <input class='goods-id' type="hidden" value="<%=good.getId()%>"/>加入购物车
                                     </button>
                                 </div>

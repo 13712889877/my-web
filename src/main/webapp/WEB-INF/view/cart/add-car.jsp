@@ -61,9 +61,9 @@
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
                     <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="/shopping/">购物</a>
+                        <a class="" href="/cart/list">购物</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="/shoppingList">购物车</a></dd>
+                            <dd><a href="/cart/carList">购物车</a></dd>
 
                             <dd><a href="">超链接</a></dd>
                         </dl>
