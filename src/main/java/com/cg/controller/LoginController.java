@@ -15,44 +15,60 @@ import java.util.List;
 @RequestMapping("/login")
 @Controller
 public class LoginController {
-@Autowired
-private IUserService userServiceImpl;
-    @RequestMapping("/index")
-    public String index(){
+    @Autowired
+    private IUserService userServiceImpl;
 
-       return "login/login";
+    @RequestMapping("/index")
+    public String index() {
+
+        return "login/login";
 
     }
 
     /**
      * 登陆
+     *
      * @return
      */
     @RequestMapping("/signin")
-    public String signin(@RequestParam("userName") String userName,@RequestParam("password") String password){
-        List<User> userlist =userServiceImpl.findUser();
-        for(int i=0;i<=userlist.size();i++) {
+    public String signin(@RequestParam("userName") String userName, @RequestParam("userPassword") String userPassword) {
+        List<User> userlist = userServiceImpl.findUser();
+        for (int i = 0; i <= userlist.size(); i++) {
             User user = userlist.get(i);
-            if (userName != null && user.getUserPassword().equals(password)) {
+            if (userName != null && user.getUserPassword().equals(userPassword)) {
                 return "redirect:/cart/list ";
             }
         }
-            return "/login/login";
+        return "/login/login";
     }
 
 
     @RequestMapping("/beforeRegister")
-    public String registers(){
+    public String registers() {
 
         return "login/register";
     }
 
     @RequestMapping("/signup")
-    public String signup(){
+    public String signup(@RequestParam("userName") String userName, @RequestParam("userPassword") String userPassword) {
+
+        if(userName!=null&&userPassword!=null){
+            User user =new User();
+            user.setUserName(userName);
+            user.setUserPassword(userPassword);
+            userServiceImpl.saveUser(user);
+            return "redirect:/login/index";
+        }else {
+
+            return "/login/false";
+        }
 
 
 
-        //重定向到登陆界面让别人登陆
-        return "redirect:/login/index";
     }
 }
+
+
+
+
+
