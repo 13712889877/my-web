@@ -21,17 +21,20 @@ import java.util.Map;
 @RequestMapping("/cart")
 @Controller
 public class CartController {
-
+    @Autowired
+    private ShoppingCar shoppingCar;
     @Autowired
     private ICoodsService coodsServiceImpl;
+
     @RequestMapping("/list")
-        public String main (Model model){
+    public String main(Model model) {
 
-            List<Goods> goods = coodsServiceImpl.findGoods();
+        List<Goods> goods = coodsServiceImpl.findGoods();
 
-            model.addAttribute("goods", goods);
-            return "cart/cart-list";
-        }
+        model.addAttribute("goods", goods);
+        return "cart/cart-list";
+    }
+
     @RequestMapping("/carList")
     public String shoppingList(HttpServletRequest req, Model model) {
 
@@ -40,8 +43,17 @@ public class CartController {
 
         return "cart/add-car";
     }
-    
-        @RequestMapping(value = "/addCar/{id}")
+
+    @RequestMapping("/delete/{id}")
+    public String delete(@PathVariable int id) {
+        if (shoppingCar.getGoodList() != null) {
+            shoppingCar.deleteShopping(id);
+        }
+
+        return "cart/add-car";
+    }
+
+    @RequestMapping(value = "/addCar/{id}")
     @ResponseBody
     public Map<String, String> addShoppingCar(HttpServletRequest request, @PathVariable int id) {
         System.out.println(id);
@@ -60,7 +72,7 @@ public class CartController {
                 }
             }
             //表示购物车中不存在该商品
-            if(flag){
+            if (flag) {
                 shoppingCar.getGoodList().add(goods);
             }
         }

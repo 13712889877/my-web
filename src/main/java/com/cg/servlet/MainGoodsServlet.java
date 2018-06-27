@@ -16,6 +16,7 @@ public class MainGoodsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         req.getRequestDispatcher("WEB-INF/view/index/main-index.jsp").forward(req,resp);
 
     }

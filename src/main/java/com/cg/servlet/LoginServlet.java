@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String userName = request.getParameter("userName") == null ? "" : request.getParameter("userName");
         String userPassword = request.getParameter("userPassword") == null ? "" : request.getParameter("userPassword");
-        User user =userService.getUser(userName);
+        User user =userService.getUserName(userName);
         if (user != null && userPassword.equals(user.getUserPassword())) {
             request.getSession().setAttribute("SHOPPING_CAR", new ShoppingCar());
             response.sendRedirect("/goods?method=shopping");

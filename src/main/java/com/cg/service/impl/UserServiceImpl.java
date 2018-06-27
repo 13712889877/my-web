@@ -26,12 +26,16 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User getUser(String name) {
+    public User getUser(int id) {
         return null;
     }
 
+
     @Override
     public void saveUser(User user) {
+        GoodsExample e = new GoodsExample();
+        GoodsExample.Criteria criteria = e.createCriteria();
+       userMapper.updateUser(user);
 
     }
 
@@ -43,5 +47,12 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void deleteUser(int id) {
 
+    }
+
+    @Override
+    public User getUserName(String userName) {
+        GoodsExample e = new GoodsExample();
+        GoodsExample.Criteria criteria = e.createCriteria();
+      return   userMapper.selectUser(userName);
     }
 }

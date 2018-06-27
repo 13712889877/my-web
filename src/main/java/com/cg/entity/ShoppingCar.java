@@ -4,8 +4,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import com.cg.entity.generate.Goods;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class ShoppingCar {
 
     //所有加入购物车的商品信息
@@ -38,8 +39,11 @@ public class ShoppingCar {
         }
    return totalPrice; }
 
-public void deleteShopping(ShoppingCar car, int id){
+public void deleteShopping(int id){
+       ShoppingCar car = new ShoppingCar();
        car.getGoodList().remove(id);
+
+
 }
 }
 

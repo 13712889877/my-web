@@ -17,7 +17,7 @@ public interface IUserService {
 
 
     //接口通过id查找单个用户信息的方法
-    User getUser(String name);
+    User getUser(int id);
 
     //接口创建一个保存用户信息的方法
     void saveUser(User user);
@@ -27,6 +27,8 @@ public interface IUserService {
 
     //接口通过id删除用户信息的方法
     void deleteUser(int id);
+    //接口通过用户名查询用户信息的方法
+    User getUserName(String userName);
 
 
 }
