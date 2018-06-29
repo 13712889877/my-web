@@ -1,6 +1,4 @@
 package com.cg.service.impl;
-
-import com.cg.entity.generate.GoodsExample;
 import com.cg.entity.generate.User;
 import com.cg.mapper.generate.UserMapper;
 import com.cg.service.IUserService;
@@ -20,9 +18,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<User> findUser() {
-        GoodsExample e = new GoodsExample();
-        GoodsExample.Criteria criteria = e.createCriteria();
-        return userMapper.selectByExample(e);
+        return null;
     }
 
     @Override
@@ -32,15 +28,13 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public void saveUser(User user) {
-        GoodsExample e = new GoodsExample();
-        GoodsExample.Criteria criteria = e.createCriteria();
-       userMapper.updateUser(user);
+    public void insert(User user) {
+        userMapper.insert(user);
 
     }
 
     @Override
-    public void updateUser(User user) {
+    public void saveUser(User user) {
 
     }
 
@@ -51,8 +45,6 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User getUserName(String userName) {
-        GoodsExample e = new GoodsExample();
-        GoodsExample.Criteria criteria = e.createCriteria();
-      return   userMapper.selectUser(userName);
+        return userMapper.selectUser(userName);
     }
 }

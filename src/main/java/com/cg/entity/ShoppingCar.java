@@ -2,6 +2,7 @@ package com.cg.entity;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import com.cg.entity.generate.Goods;
 import org.springframework.stereotype.Service;
@@ -40,8 +41,15 @@ public class ShoppingCar {
    return totalPrice; }
 
 public void deleteShopping(int id){
-       ShoppingCar car = new ShoppingCar();
-       car.getGoodList().remove(id);
+
+    Iterator<Goods> gl = goodList.iterator();
+    while(gl.hasNext()){
+        Goods good =gl.next();
+        if(good.equals(id)){
+            gl.remove();
+        }
+    }
+
 
 
 }

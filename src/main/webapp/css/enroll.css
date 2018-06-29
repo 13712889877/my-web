@@ -1,0 +1,11 @@
+#reg{width:400px;height: 300px;position: relative;margin:10px auto}
+#reg label{float:right;position: relative;margin-top: 10px;font-size: 28px;}
+#reg label input{width:250px;height: 40px;font-size: 24px;}
+#reg #btn{width:120px;height: 40px;position: absolute;right: 65px;margin-top: 80px;}
+#reg span{width:200px;position: absolute;right: -210px;font-size: 24px;}
+#reg #user{top:20px;}
+#reg #pass{top:75px;}
+#reg #rep{top:130px;}
+#reg #em{top:185px;}
+.error{color:red;}
+.ok{color:greenyellow;}

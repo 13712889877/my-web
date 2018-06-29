@@ -4,8 +4,10 @@ import com.cg.entity.generate.GoodsExample;
 import com.cg.entity.generate.User;
 import com.cg.entity.generate.UserExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface UserMapper {
     int countByExample(UserExample example);
 

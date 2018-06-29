@@ -81,6 +81,7 @@
                 </ul>
             </div>
         </div>
+        <form action="/cart/carList" method="post">
         <div class="layui-body">
             <blockquote class="layui-elem-quote" style="margin-top:10px">通知：6月18号，全场商品，买一送一。</blockquote>
             <div class="layui-fluid">
@@ -120,7 +121,7 @@
                         </td>
                         <td><%=goods.getNumber()*goods.getPrice()%></td>
                         <td><a
-                                href="<%=request.getContextPath()%>?delete=<%=i%>"><input
+                                href="<%=request.getContextPath()%>/cart/delete/<%=goods.getId()%>"><input
                                 class="btn_s" type="button" value="删除"/></a></td>
                     </tr>
                     <%}%>

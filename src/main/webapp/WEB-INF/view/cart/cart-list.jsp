@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/layui/css/layui.css" media="all">
     <script src="/layui/layui.js" charset="utf-8"></script>
     <script src="/scripts/jquery-3.2.1.min.js"></script>
-    <script src="/js/add.js" charset="utf-8"></script>
+    <script src="/js/cart/add.js" charset="utf-8"></script>
 </head>
 <sc class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">

@@ -7,14 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/layui/css/layui.css" media="all">
     <script src="/scripts/jquery-3.2.1.min.js"></script>
-    <script src="/js/enroll.js" charset="utf-8"></script>
+    <script src="/js/enroll.ajax.js" charset="utf-8"></script>
     <title>用户注册</title>
     <style>
         div{position:relative;}
-        button{
-            position:absolute;
 
-        }
     </style>
 </head>
 <body>
@@ -48,7 +45,7 @@
             </div>
         </div>
     </div>
-    <button style="  right:950px;bottom:580px;" id="enroll" class="layui-btn layui-btn-normal">点击注册</button>
+    <button  class="layui-btn" type="submit">点击注册</button>
     </a>
 </form>
 </body>

@@ -23,7 +23,7 @@ public interface IUserService {
     void saveUser(User user);
 
     //接口创建一个更新用户信息的方法
-    void updateUser(User user);
+    void insert(User user);
 
     //接口通过id删除用户信息的方法
     void deleteUser(int id);

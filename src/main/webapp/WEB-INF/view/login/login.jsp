@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="/layui/css/layui.css" media="all">
     <title>登录界面</title>
     <style>
-        div{position:relative;}
-        button{
-            position:absolute;
 
-        }
     </style>
 </head>
 <body>
@@ -37,11 +33,16 @@
             </div>
         </div>
     </div>
-    <button style="right:1050px;bottom:650px;" class="layui-btn layui-btn-warm" type="submit">登录</button>
+
+    <div class="layui-input-block">
+        <button class="layui-btn" type="submit">登录</button>
+        <a href="/login/beforeRegister">
+            <button type="button" class="layui-btn">注册</button>
+        </a>
+    </div>
+
 </form>
-<a href="/login/beforeRegister">
-    <button style="  right:950px;bottom:650px;" class="layui-btn layui-btn-normal">注册</button>
-</a>
+
 
 </body>
 </html>
